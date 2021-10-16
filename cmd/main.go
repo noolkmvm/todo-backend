@@ -15,6 +15,13 @@ import (
 	"todo/pkg/service"
 )
 
+// @title Todo Backend API
+// @version 1.0
+// @host localhost:8000
+// @basePath /
+// @securityDefinitions.apikey ApiKeyAuth
+// @in header
+// @name Authorization
 func main() {
 	gin.SetMode(gin.ReleaseMode)
 	logrus.SetFormatter(new(logrus.JSONFormatter))
@@ -47,13 +54,13 @@ func main() {
 		}
 	}()
 
-	logrus.Print("Todo App started")
+	logrus.Print("Todo Backend started")
 
 	quit := make(chan os.Signal, 1)
 	signal.Notify(quit, syscall.SIGTERM, syscall.SIGINT)
-	<- quit
+	<-quit
 
-	logrus.Print("Todo App shutdown")
+	logrus.Print("Todo Backend shutdown")
 	if err := srv.Shutdown(context.Background()); err != nil {
 		logrus.Errorf("error occured on server shutdown: %s", err.Error())
 	}

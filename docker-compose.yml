@@ -1,11 +1,11 @@
 version: '3.8'
 
 services:
-  todo-app:
+  todo-backend:
     build: ./
-    command: ./wait-for-postgres.sh db ./todo-app
+    command: ./wait-for-postgres.sh db ./todo-backend
     ports:
-      - 8000:8000
+      - "8000:8000"
     depends_on:
       - db
     environment:
@@ -19,4 +19,4 @@ services:
     environment:
       - POSTGRES_PASSWORD=qwerty
     ports:
-      - 5436:5432
+      - "5436:5432"

@@ -1,8 +1,8 @@
 build:
-	docker-compose build todo-app
+	docker-compose build todo-backend
 
 run:
-	docker-compose up todo-app
+	docker-compose up todo-backend
 
 stop:
 	docker-compose stop
